@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import httpStatus from 'http-status';
-import logger from 'ttt-packages/config/logger.js';
-import mailRoutes from './mail.routes.js';
+import logger from 'ttt-packages/lib/config/logger';
+import mailRoutes from './mail.routes';
 
 process.env.PORT = 3020;
 

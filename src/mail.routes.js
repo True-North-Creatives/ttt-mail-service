@@ -1,5 +1,5 @@
 import express from 'express';
-import { sendConfirmationMail, sendWelcomeMail, sendPasswordResetMail } from './mail.controller.js';
+import { sendConfirmationMail, sendWelcomeMail, sendPasswordResetMail } from './mail.controller';
 
 const router = express.Router();
 
