@@ -5,7 +5,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'hi@timetotrain.fit',
-    pass: 'gebqopdsfgmwvkfu',
+    pass: 'wzhfpgiboaeiijft',
   },
 });
 const dest = 'gangulaar.icon@gmail.com';
