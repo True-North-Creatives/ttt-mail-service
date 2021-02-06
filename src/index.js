@@ -3,8 +3,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import httpStatus from 'http-status';
 import logger from 'ttt-packages/lib/config/logger';
-import mailRoutes from './mail.routes';
 import customEnv from 'custom-env';
+import mailRoutes from './mail.routes';
 
 customEnv.env(process.env.NODE_ENV);
 

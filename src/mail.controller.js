@@ -2,6 +2,12 @@ import httpStatus from 'http-status';
 import logger from 'ttt-packages/lib/config/logger';
 import mailService from './mail.service';
 
+/**
+ * For sending welcome mail, arguments needed {email in params}
+ * {name in payload}
+ * @param {Object} req
+ * @param {Object} res
+ */
 export const sendWelcomeMail = async (req, res) => {
   try {
     await mailService({
@@ -17,6 +23,13 @@ export const sendWelcomeMail = async (req, res) => {
   }
 };
 
+/**
+ * For sendig send password reset mail,
+ * argument needed {email in params}
+ * {name and redirecturl in payload}
+ * @param {*} req
+ * @param {*} res
+ */
 export const sendPasswordResetMail = async (req, res) => {
   try {
     await mailService({
@@ -32,6 +45,13 @@ export const sendPasswordResetMail = async (req, res) => {
   }
 };
 
+/**
+ * For sending Confirmation mail,
+ * argument needed {email in params}
+ * {redirecturl in payload}
+ * @param {Object} req
+ * @param {Object} res
+ */
 export const sendConfirmationMail = async (req, res) => {
   try {
     await mailService({

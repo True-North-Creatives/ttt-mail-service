@@ -5,10 +5,12 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'hi@timetotrain.fit',
-    pass: 'wzhfpgiboaeiijft',
+    pass: process.env.GPASS,
   },
 });
-const dest = 'gangulaar.icon@gmail.com';
+
+//default destination
+const dest = 'hi@timetotrain.fit';
 
 const mailOptions = {
   from: 'Don\'t reply <hi@timetotrain.fit>',
@@ -27,4 +29,5 @@ const mailService = ({
   });
   return result;
 };
+
 export default mailService;
