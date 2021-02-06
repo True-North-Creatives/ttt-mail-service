@@ -2,16 +2,15 @@
   "name": "ttt-mailer",
   "version": "1.0.0",
   "description": "mailer service for timettrain web app",
-  "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "npm run clean && npm run transpile",
-    "dev": "nodemon -e babel-node src/index.js",
+    "dev": "NODE_ENV=dev nodemon --exec babel-node src/index.js",
     "transpile": "babel src -d lib",
     "clean": "rimraf lib",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "start": "node lib/index.js"
+    "start": "NODE_ENV=staging node lib/index.js",
+    "start:prod": "NODE_ENV=prod node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,19 +27,21 @@
   },
   "homepage": "https://github.com/True-North-Creatives/ttt-mailer#readme",
   "dependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "custom-env": "^2.0.1",
     "express": "^4.17.1",
     "http-status": "^1.5.0",
     "nodemailer": "^6.4.17",
     "nodemon": "^2.0.7",
-    "ttt-packages": "0.0.11"
+    "ttt-packages": "0.0.12"
   },
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/plugin-transform-runtime": "^7.12.15",
+    "@babel/preset-env": "^7.12.13",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1"

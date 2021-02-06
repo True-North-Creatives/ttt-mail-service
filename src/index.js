@@ -4,8 +4,9 @@ import bodyParser from 'body-parser';
 import httpStatus from 'http-status';
 import logger from 'ttt-packages/lib/config/logger';
 import mailRoutes from './mail.routes';
+import customEnv from 'custom-env';
 
-process.env.PORT = 3020;
+customEnv.env(process.env.NODE_ENV);
 
 const app = express();
 
