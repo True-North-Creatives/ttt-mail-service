@@ -10,8 +10,9 @@
     "clean": "rimraf lib",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "start:staging": "NODE_ENV=staging node lib/index.js",
-    "start:prod": "NODE_ENV=prod node lib/index.js"
+    "start:stage": "NODE_ENV=staging node lib/index.js",
+    "start:prod": "NODE_ENV=prod node lib/index.js",
+    "restart": "pm2 restart mail"
   },
   "repository": {
     "type": "git",
