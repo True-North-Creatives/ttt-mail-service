@@ -5,6 +5,7 @@ import httpStatus from 'http-status';
 import logger from 'ttt-packages/lib/config/logger';
 import customEnv from 'custom-env';
 import mailRoutes from './mail.routes';
+import morgan from 'ttt-packages/lib/plugins/morgan';
 
 customEnv.env(process.env.NODE_ENV);
 
@@ -13,14 +14,17 @@ const app = express();
 app.use(express.json({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(morgan.successHandler);
+app.use(morgan.errorHandler);
+
 const local = [
   'https://localhost:3000',
 ];
 const stage = [
-  'https://stage.api.timetotrain.fit',
+  'https://stage.timetotrain.fit',
 ];
 const prod = [
-  'https://api.timetotrain.fit',
+  'https://timetotrain.fit',
 ];
 
 // enable cors
@@ -30,7 +34,7 @@ app.options('*', cors());
 // v2 api routes
 app.use('/api/v2/mail', mailRoutes);
 
-app.get('/api/mailer', (req, res) => {
+app.get('/api/v2/mail/health', (req, res) => {
   logger.debug('Health Monitor');
   res.status(httpStatus.OK).send('healthy');
 });
